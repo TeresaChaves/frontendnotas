@@ -1,0 +1,37 @@
+/* General reset for margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.logo {
+  width: 30px;
+}
+
+/* Navigation links container */
+.nav-links {
+  list-style: none; /* Removes bullets */
+  display: flex; /* Aligns list items in a row */
+  gap: 20px; /* Adds space between links */
+}
+
+/* Individual link styles */
+.nav-links a {
+  text-decoration: none;
+  color: #d315c3;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #08a121; /* Green color on hover */
+}

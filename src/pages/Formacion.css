@@ -1,0 +1,161 @@
+.section_formacion {
+  background-color: #ec520b;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.section_formacion h1 {
+  font-size: 20rem;
+  color: black;
+  font-weight: 600;
+  letter-spacing: -20px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.section_formacion-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  overflow-y: auto;
+  height: 50vh;
+}
+
+/* Animación en cada elemento */
+.section_formacion-list-item {
+  position: relative; /* Asegura que ::before se posicione dentro del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita que ::before se salga del contenedor */
+
+  font-size: 3rem;
+  font-weight: 100;
+  letter-spacing: -5px;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  color: black; /* Color del texto */
+  z-index: 1; /* Coloca el texto encima del pseudo-elemento */
+}
+
+.section_formacion-list-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section_formacion-list-item::before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Toma el color del background del contenedor */
+  transform: scaleY(0); /* Escala inicial completa */
+  transform-origin: center; /* Se abre/cierra desde el centro */
+  transition: transform 0.5s ease; /* Suave transición */
+  z-index: 0; /* Asegura que el pseudo-elemento esté detrás del texto */
+}
+.img-formacion {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  /* filter: blur(3px); */
+}
+
+.section_formacion-list-item span.details {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2;
+  font-size: 1.5rem;
+  color: black;
+  text-align: start;
+  letter-spacing: -1px;
+  padding: 25px;
+}
+
+.section_formacion-list-item:hover span.details {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+.section_formacion-list-item:hover::before {
+  transform: scaleY(1); /* Se cierra por la mitad */
+}
+
+/* Estilos para cada hijo con diferentes colores */
+.section_formacion-list-item:nth-child(1) {
+  background-color: #f59ebc; /* Este color será tomado por ::before */
+}
+.section_formacion-list-item:nth-child(2) {
+  background-color: #0c65d1;
+}
+.section_formacion-list-item:nth-child(3) {
+  background-color: #337243;
+}
+.section_formacion-list-item:nth-child(4) {
+  background-color: #fab308;
+}
+
+/* Animación personalizada */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.footer-formacion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #ec520b;
+  color: white;
+  font-size: 1.5rem;
+  height: 60px;
+}
+
+.footer-formacion .year {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 25px;
+}
+.footer-formacion .name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+.hr {
+  border: 0.5px solid rgb(0, 0, 0);
+  width: 100%;
+}
