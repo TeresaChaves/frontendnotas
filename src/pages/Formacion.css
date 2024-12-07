@@ -69,7 +69,6 @@
 
 .section_formacion-list-item span.details {
   position: absolute;
-  bottom: 10px;
   left: 50%;
   transform: translate(-50%, 50%);
   opacity: 0;
@@ -79,7 +78,7 @@
   color: black;
   text-align: start;
   letter-spacing: -1px;
-  padding: 25px;
+  /* padding: 25px; */
 }
 
 .section_formacion-list-item:hover span.details {
@@ -87,6 +86,9 @@
   opacity: 1;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .section_formacion-list-item:hover::before {
   transform: scaleY(1); /* Se cierra por la mitad */
@@ -117,6 +119,44 @@
     transform: translateY(0);
   }
 }
+
+/* .website-hover-container {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background-color 0.3s ease-in-out;
+} */
+.website-hover-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.website-hover-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.website-summary {
+  cursor: pointer;
+  padding: 50px;
+  border-radius: 4px;
+  color: black;
+}
+
+.website-details {
+  max-height: 0; /* Oculta el contenido inicialmente */
+  overflow: hidden; /* Evita que el contenido sea visible fuera del contenedor */
+  transition: max-height 0.3s ease; /* Animación suave */
+  background: #fff;
+  padding: 0 10px; /* Espaciado interno cuando está visible */
+}
+
+/* Para navegadores basados en WebKit (Chrome, Safari) */
+.website-details::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento */
+}
+
 .footer-formacion {
   display: flex;
   flex-direction: row;

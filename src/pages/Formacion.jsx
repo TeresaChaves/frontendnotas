@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
 import "./Formacion.css";
 import webdev from "../assets/imgs/webdev.jpeg";
 import eloquent from "../assets/imgs/EloquentJS.jpeg";
 import openbootcamp from "../assets/imgs/OpenBootcamp.jpeg";
 import midu from "../assets/imgs/Midu.jpeg";
 import reccosmicos from "../assets/imgs/RecCosmicos.jpeg";
-import { useRef } from "react";
 import desarrollo from "../assets/icons/svg-hub-102.svg";
 import diseño from "../assets/icons/svg-hub-107.svg";
 
@@ -70,21 +69,22 @@ function Formacion() {
     }
   };
 
-  const items = ["Diseño", "Desarrollo Web", "UX/UI", "Programación"];
   const itemsFormacion = [
     {
       name: "Diseño",
-      image: diseño, // Importa la imagen directamente si es posible
+      image: diseño,
       description:
         "Diseño de páginas web y aplicaciones móviles y web de alta calidad",
       websites: [
         {
           name: "Recursos de diseño",
           url: "https://www.recursoscosmicos.com/",
+          description: "Recursos de diseño para diseñar sitios web y apps",
         },
         {
           name: "Inspiration Hub",
           url: "https://www.inspirationhub.com/",
+          description: "Recursos de diseño para diseñar sitios web y apps",
         },
       ],
     },
@@ -96,45 +96,40 @@ function Formacion() {
         {
           name: "Web Dev Docs",
           url: "https://www.webdevdocs.com/",
+          description: "Recursos de diseño para diseñar sitios web y apps",
         },
         {
           name: "Frontend Mastery",
           url: "https://www.frontendmastery.com/",
+          description: "Recursos de diseño para diseñar sitios web y apps",
         },
         {
           name: "MDN Web Docs",
           url: "https://developer.mozilla.org/en-US/",
         },
-
         {
           name: "W3Schools",
           url: "https://w3schools.com/",
-          description: "W3Schools",
         },
         {
           name: "Codecademy",
           url: "https://www.codecademy.com/",
-          description: "Codecademy",
         },
         {
           name: "FreeCodeCamp",
           url: "https://www.freecodecamp.org/",
-          description: "FreeCodeCamp",
         },
         {
           name: "CodePen",
           url: "https://codepen.io/",
-          description: "CodePen",
         },
         {
           name: "GitHub",
           url: "https://github.com/",
-          description: "GitHub",
         },
         {
           name: "Stack Overflow",
           url: "https://stackoverflow.com/",
-          description: "Stack Overflow",
         },
       ],
     },
@@ -170,6 +165,26 @@ function Formacion() {
     },
   ];
 
+  // Función para calcular el color con opacidad ajustada
+  function getBackgroundColorRosa(categoryIndex, index, totalItems) {
+    const categoryColors = [
+      "245, 158, 188", // Rosa
+      "12, 101, 209", // Naranja claro
+      "51, 114, 67", // Azul claro
+      "250, 179, 8", // Naranja oscuro
+      "255, 255, 150", // Amarillo claro
+    ];
+
+    // Selecciona el color base según el índice de la categoría
+    const baseColor = categoryColors[categoryIndex % categoryColors.length];
+
+    // Ajusta la opacidad según el índice del sitio web
+    const opacity = 1 - index / totalItems;
+
+    // Devuelve el color con la opacidad ajustada
+    return `rgba(${baseColor}, ${opacity})`;
+  }
+
   return (
     <>
       <div className="section_formacion">
@@ -195,22 +210,32 @@ function Formacion() {
               setObserver(node);
             }}>
             <span className="details">
-              {/* Detalles sobre {item.description} */}
-              {/* <img
-                className="img-formacion"
-                src={item.image}
-                alt="image de formacion"
-              /> */}
               {item.websites &&
                 item.websites.map((website, i) => (
-                  <p key={i}>
-                    <a
-                      href={website.url}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      {website.name}
-                    </a>
-                  </p>
+                  <div
+                    key={i}
+                    className="website-hover-container"
+                    ref={(node) => setObserver(node)}
+                    style={{
+                      backgroundColor: getBackgroundColorRosa(
+                        index,
+                        i,
+                        item.websites.length
+                      ),
+                    }}>
+                    <div className="website-summary">{website.name}</div>
+                    <div className="website-details">
+                      <p>
+                        <a
+                          href={website.url}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          Entrar
+                        </a>
+                      </p>
+                      {website.description && <p>{website.description}</p>}
+                    </div>
+                  </div>
                 ))}
             </span>
             {item.name}
