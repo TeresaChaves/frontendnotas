@@ -1,0 +1,144 @@
+.grid-container {
+  display: grid;
+  /* Adaptar las columnas automáticamente al tamaño disponible */
+  grid-auto-rows: 150px; /* Altura base para las filas */
+  gap: 15px; /* Espaciado entre celdas */
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto; /* Centrar el contenedor en la pantalla */
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Tamaños personalizados para los elementos */
+.grid-item.small {
+  grid-column: span 1; /* Ocupa una columna */
+  grid-row: span 1; /* Ocupa una fila */
+}
+
+.grid-item.large {
+  grid-column: span 2; /* Ocupa dos columnas */
+  grid-row: span 2; /* Ocupa dos filas */
+}
+
+.grid-item.wide {
+  grid-column: span 2; /* Ocupa dos columnas */
+  grid-row: span 1; /* Ocupa una fila */
+}
+
+.grid-item.tall {
+  grid-column: span 1; /* Ocupa una columna */
+  grid-row: span 2; /* Ocupa dos filas */
+}
+/* Estilo para el contenedor */
+.grid-item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* border-radius: 8px; */
+}
+
+/* Imagen de fondo */
+.grid-item-image {
+  width: 150px;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+}
+/* Superposición para texto */
+.grid-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgb(255 255 255 / 42%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo del texto */
+.grid-item-label {
+  color: black;
+  font-size: 1.5rem;
+  /* font-weight: bold; */
+  text-align: center;
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); */
+}
+.section_diseño {
+  background-color: #dfdfdf;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.section_diseño h1 {
+  font-size: 20rem;
+  color: black;
+  font-weight: 600;
+  letter-spacing: -20px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+.section_diseño img {
+  object-fit: cover;
+  /* opacity: 0.5; */
+  filter: grayscale(100%);
+  width: 50px;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  right: 10px;
+}
+.footer-diseño {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #ebebeb;
+  color: white;
+  font-size: 1.5rem;
+  height: 60px;
+}
+
+.footer-diseño .year {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 25px;
+}
+.footer-diseño .name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 25px;
+}

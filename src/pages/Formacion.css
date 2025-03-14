@@ -199,3 +199,56 @@
   border: 0.5px solid rgb(0, 0, 0);
   width: 100%;
 }
+.website-hover-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.website-summary {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.website-details {
+  max-height: 0; /* Oculto inicialmente */
+  overflow: hidden; /* Oculta el contenido excedente */
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  background-color: white;
+  padding: 0 10px; /* Espaciado interno inicial */
+  border-top: 1px solid #ddd;
+}
+
+.website-hover-container:hover .website-details {
+  max-height: 200px; /* Ajusta según el contenido máximo esperado */
+  padding: 10px; /* Espaciado interno cuando está visible */
+}
+
+.website-details p {
+  font-size: 16px;
+}
+
+.website-details a {
+  text-decoration: none;
+  color: black;
+  font-family: "Geologica", sans-serif;
+  font-weight: 100;
+  text-align: end;
+  display: flex;
+  font-size: 18px;
+  justify-content: flex-end;
+  font-weight: 400;
+  /* border: 1px solid black; */
+  /* padding: 20px; */
+}
+.section_formacion img {
+  object-fit: cover;
+  /* opacity: 0.5; */
+  filter: grayscale(100%);
+  width: 50px;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  right: 10px;
+}

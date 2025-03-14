@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import { useState } from "react";
 
 function Home() {
   return (
@@ -19,7 +20,7 @@ function Home() {
               </Link>
             </li>
             <li className="body_list_item">
-              <Link to="/">
+              <Link to="/diseno">
                 <span>Botones, Iconos, Color, Pressets </span>{" "}
                 <span className="Link_Home">Diseño Web</span>
               </Link>
