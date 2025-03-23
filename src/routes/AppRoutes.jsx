@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Formacion from "../pages/Formacion";
 import Diseño from "../pages/Diseño";
+import Inspiracion from "../pages/Inspiracion";
 
 const AppRoutes = () => {
   return (
@@ -10,6 +11,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/formacion" element={<Formacion />} />
       <Route path="/diseno" element={<Diseño />} />
+      <Route path="/inspiracion" element={<Inspiracion />} />
     </Routes>
   );
 };

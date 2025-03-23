@@ -26,7 +26,7 @@ function Home() {
               </Link>
             </li>
             <li className="body_list_item">
-              <Link to="/">
+              <Link to="/inspiracion">
                 <span>Diseños y trabajos de otrxs desarrolladorxs</span>{" "}
                 <span className="Link_Home">Inspiración</span>
               </Link>

@@ -4,7 +4,7 @@ body {
   font-family: "Geologica", sans-serif; /* Aplica tu fuente */
   background-color: #f9f9f9; /* Define un fondo claro */
   color: #333; /* Define un color de texto estándar */
-  line-height: 1.6; /* Mejora la legibilidad */
+  line-height: 1.2; /* Mejora la legibilidad */
   -webkit-font-smoothing: antialiased; /* Mejora el renderizado de la fuente en navegadores */
   overflow-x: hidden; /* Evita scroll horizontal innecesario */
 }
